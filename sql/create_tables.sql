@@ -35,7 +35,7 @@ CREATE TABLE "public.artist" (
 
 
 CREATE TABLE "public.social_link" (
-	"id" serial(255) NOT NULL,
+	"id" varchar(255) NOT NULL,
 	"artist_id" varchar(255) NOT NULL,
 	"link" varchar(255) NOT NULL,
 	CONSTRAINT "social_link_pk" PRIMARY KEY ("id")
@@ -55,7 +55,7 @@ CREATE TABLE "public.record_label_artist" (
 
 
 CREATE TABLE "public.artist_media" (
-	"id" serial(255) NOT NULL,
+	"id" varchar(255) NOT NULL,
 	"artist_id" varchar(255) NOT NULL,
 	"url" varchar(255) NOT NULL,
 	"media_type" varchar(255) NOT NULL,
