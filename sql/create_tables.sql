@@ -83,22 +83,22 @@ CREATE TABLE "public.calendar" (
 CREATE TABLE "public.artist_calendar" (
 	"id" varchar(255) NOT NULL,
 	"artist_id" varchar(255) NOT NULL,
-	"artist_id" varchar(255) NOT NULL,
+	"calendar_id" varchar(255) NOT NULL,
 	CONSTRAINT "artist_calendar_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
 
 
-ALTER TABLE "artist" ADD CONSTRAINT "artist_fk0" FOREIGN KEY ("user_id") REFERENCES "user"("id");
+ALTER TABLE "public.artist" ADD CONSTRAINT "artist_fk0" FOREIGN KEY ("user_id") REFERENCES "public.user"("id");
 
-ALTER TABLE "social_link" ADD CONSTRAINT "social_link_fk0" FOREIGN KEY ("artist_id") REFERENCES "artist"("id");
+ALTER TABLE "public.social_link" ADD CONSTRAINT "social_link_fk0" FOREIGN KEY ("artist_id") REFERENCES "public.artist"("id");
 
-ALTER TABLE "record_label_artist" ADD CONSTRAINT "record_label_artist_fk0" FOREIGN KEY ("record_label_id") REFERENCES "record_label"("id");
-ALTER TABLE "record_label_artist" ADD CONSTRAINT "record_label_artist_fk1" FOREIGN KEY ("artist_id") REFERENCES "artist"("id");
+ALTER TABLE "public.record_label_artist" ADD CONSTRAINT "record_label_artist_fk0" FOREIGN KEY ("record_label_id") REFERENCES "public.record_label"("id");
+ALTER TABLE "public.record_label_artist" ADD CONSTRAINT "record_label_artist_fk1" FOREIGN KEY ("artist_id") REFERENCES "public.artist"("id");
 
-ALTER TABLE "artist_media" ADD CONSTRAINT "artist_media_fk0" FOREIGN KEY ("artist_id") REFERENCES "artist"("id");
+ALTER TABLE "public.artist_media" ADD CONSTRAINT "artist_media_fk0" FOREIGN KEY ("artist_id") REFERENCES "public.artist"("id");
 
 
-ALTER TABLE "artist_calendar" ADD CONSTRAINT "artist_calendar_fk0" FOREIGN KEY ("artist_id") REFERENCES "artist"("id");
-ALTER TABLE "artist_calendar" ADD CONSTRAINT "artist_calendar_fk1" FOREIGN KEY ("artist_id") REFERENCES "calendar"("id");
+ALTER TABLE "public.artist_calendar" ADD CONSTRAINT "artist_calendar_fk0" FOREIGN KEY ("artist_id") REFERENCES "public.artist"("id");
+ALTER TABLE "public.artist_calendar" ADD CONSTRAINT "artist_calendar_fk1" FOREIGN KEY ("calendar_id") REFERENCES "public.calendar"("id");
