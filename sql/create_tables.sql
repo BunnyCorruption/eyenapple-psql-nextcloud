@@ -4,7 +4,7 @@ CREATE TABLE "public.user" (
 	"email" varchar(255) NOT NULL UNIQUE,
 	"password" varchar(255) NOT NULL UNIQUE,
 	"date" TIMESTAMP(255) NOT NULL,
-	"admin_rights" BOOLEAN NOT NULL,
+	"admin_access" INT NOT NULL,
 	CONSTRAINT "user_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
